@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+        <title>{{title}}</title>
+    {% else %}
+        <title>Home</title>
+    {% endif %}
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='faveicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+
+{% block content %}
+
+{% endblock %}
+
+
+<!-- For Bootstrap in this exact order... -->
+<script src="{{ url_for('static', filename='js/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap/popper.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js')}}"></script>
+
+<!-- For DatePicker -->
+<script src="{{ url_for('static', filename='js/bootstrap/moment.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap/bootstrap-datepicker.min.js')}}"></script>
+
+{% block scripts %}
+
+{% endblock %}
+
+</body>
+</html>
