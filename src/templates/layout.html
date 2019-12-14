@@ -5,13 +5,21 @@
     {% if title %}
         <title>{{title}}</title>
     {% else %}
-        <title>Home</title>
+        <title>App</title>
     {% endif %}
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='faveicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+
+    {% block headercss %}
+
+    {% endblock %}
+
+    {% block headerscripts %}
+
+    {% endblock %}
+
 </head>
 <body>
 
