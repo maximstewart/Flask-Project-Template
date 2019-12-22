@@ -1,13 +1,14 @@
+from flask import request, render_template
+from core import app, db                         # Get from __init__
+
+from core.models import Table                    # Get db models
+from core.MessageHandler import MessageHandler   # Get simple message processor
+
+
 # Python imports
-from flask import Flask, request, render_template
-
-# Application imports
-from utils import DBConnect, MessageHandler
 
 
-app        = Flask(__name__)
 msgHandler = MessageHandler()
-db         = DBConnect()
 
 
 @app.route('/', methods=['GET', 'POST'])

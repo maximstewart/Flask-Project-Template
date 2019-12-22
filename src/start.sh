@@ -8,6 +8,6 @@
 function main() {
     source "../bin/activate"
     # Note can replace 127.0.0.1 with 0.0.0.0 to make it 'network/internet' accessable...
-    gunicorn app:app -b 127.0.0.1:8080 # <module>:<app>   IE <file>:<flask app variable>
 }
+gunicorn wsgi:app -b 127.0.0.1:4040 # <module>:<app>   IE <file>:<flask app variable>
 main $@;
