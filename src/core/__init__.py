@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///static/db/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-from core.models import db
+from .models import db
 db.init_app(app)
 
-from core import routes
+from . import routes
