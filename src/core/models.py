@@ -1,4 +1,6 @@
-from core import db
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 class Table(db.Model):
