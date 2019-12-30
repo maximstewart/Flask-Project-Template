@@ -12,5 +12,8 @@
 {% endblock content %}
 
 {% block scripts %}
-    <!-- Created scripts -->
+    <script src="{{ url_for('static', filename='js/ui-logic.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/post-ajax.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/events.js')}}"></script>
 {% endblock scripts %}
