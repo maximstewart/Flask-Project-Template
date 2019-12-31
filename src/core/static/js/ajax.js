@@ -24,9 +24,9 @@ const doAjax = (actionPath, data, action) => {
 const formatURL = (basePath) => {
     url = window.location.href;
     if ( url.endsWith('/') )
-        return url + '/' + basePath;
-    else
         return url + basePath;
+    else
+        return url + '/' + basePath;
 }
 
 const fetchData = async (url) => {
