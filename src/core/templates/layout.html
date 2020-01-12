@@ -8,12 +8,12 @@
         <title>App</title>
     {% endif %}
 
-    <!-- Site CSS -->
     {% block header_css %}
     <!-- Bootstrap CSS -->
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
+        <!-- Site CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
         {% block header_css_additional %}
         {% endblock header_css_additional %}
@@ -34,7 +34,6 @@
     {% block body_header_additional %}
     {% endblock body_header_additional%}
 {% endblock %}
-
 
 
 {% block body_content %}
