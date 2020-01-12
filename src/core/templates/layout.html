@@ -8,39 +8,60 @@
         <title>App</title>
     {% endif %}
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
-
+    <!-- Site CSS -->
     {% block header_css %}
+    <!-- Bootstrap CSS -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+        {% block header_css_additional %}
+        {% endblock header_css_additional %}
     {% endblock %}
 
     {% block header_scripts %}
+        {% block header_scripts_additional %}
+        {% endblock header_scripts_additional %}
     {% endblock %}
-
 </head>
 <body>
+    <img id="bg" src="{{ url_for('static', filename='imgs/backgrounds/background.jpg')}}" alt="{{title}} Background Logo" />
+
 
 {% block body_header %}
+    {% include "body-header.html" %}
+
+    {% block body_header_additional %}
+    {% endblock body_header_additional%}
 {% endblock %}
 
-{% block content %}
+
+
+{% block body_content %}
+    {% block body_content_additional %}
+    {% endblock body_content_additional%}
 {% endblock %}
 
 
 {% block body_footer %}
+    {% include "body-footer.html" %}
+
+    {% block body_footer_additional %}
+    {% endblock body_footer_additional%}
 {% endblock %}
 
-<!-- For Bootstrap in this exact order... -->
-<script src="{{ url_for('static', filename='js/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap/popper.min.js')}}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js')}}"></script>
-
-<!-- For DatePicker -->
-<script src="{{ url_for('static', filename='js/bootstrap/moment.min.js')}}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap/bootstrap-datepicker.min.js')}}"></script>
 
 {% block body_scripts %}
+<!-- For Bootstrap in this exact order... -->
+    <script src="{{ url_for('static', filename='js/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap/popper.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js')}}"></script>
+
+    <!-- For DatePicker -->
+    <script src="{{ url_for('static', filename='js/bootstrap/moment.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap-datepicker.min.js')}}"></script>
+    {% block body_scripts_additional %}
+    {% endblock body_scripts_additional%}
 {% endblock %}
 
 </body>
