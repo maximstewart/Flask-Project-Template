@@ -16,7 +16,7 @@ def root():
     if request.method == 'GET':
         return render_template('index.html',
                                 title=':::APP TITLE:::')
-    elif:
-        return render_template('error.html',
-                                title='Error!',
-                                message='Must use GET request type...')
+
+    return render_template('error.html',
+                            title='Error!',
+                            message='Must use GET request type...')
