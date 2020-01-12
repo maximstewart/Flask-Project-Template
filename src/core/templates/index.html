@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
+
+{% block body_header %}
+<h1 style=" position: fixed; top: 0em;">Footer</h1>
+{% endblock body_header %}
+
 {% block content %}
     <div class="container">
         <div class="row">
@@ -11,9 +16,14 @@
     </div>
 {% endblock content %}
 
-{% block scripts %}
+
+{% block body_footer %}
+<h1 style=" position: fixed; bottom: 0em;">Footer</h1>
+{% endblock body_footer %}
+
+{% block body_scripts %}
     <script src="{{ url_for('static', filename='js/ui-logic.js')}}"></script>
     <script src="{{ url_for('static', filename='js/post-ajax.js')}}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
     <script src="{{ url_for('static', filename='js/events.js')}}"></script>
-{% endblock scripts %}
+{% endblock body_scripts %}

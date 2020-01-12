@@ -12,21 +12,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-datepicker.css')}}">
 
-    {% block headercss %}
-
+    {% block header_css %}
     {% endblock %}
 
-    {% block headerscripts %}
-
+    {% block header_scripts %}
     {% endblock %}
 
 </head>
 <body>
 
-{% block content %}
-
+{% block body_header %}
 {% endblock %}
 
+{% block content %}
+{% endblock %}
+
+
+{% block body_footer %}
+{% endblock %}
 
 <!-- For Bootstrap in this exact order... -->
 <script src="{{ url_for('static', filename='js/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
@@ -37,8 +40,7 @@
 <script src="{{ url_for('static', filename='js/bootstrap/moment.min.js')}}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap/bootstrap-datepicker.min.js')}}"></script>
 
-{% block scripts %}
-
+{% block body_scripts %}
 {% endblock %}
 
 </body>
