@@ -16,10 +16,7 @@ def root():
     if request.method == 'GET':
         return render_template('index.html',
                                 title=':::APP TITLE:::')
-    elif request.method == 'POST':
+    elif:
         return render_template('error.html',
                                 title='Error!',
                                 message='Must use GET request type...')
-    else:
-        msg = "Must use GET/POST request type..."
-        return msgHandler.createMessageJSON("alert-danger", msg)
