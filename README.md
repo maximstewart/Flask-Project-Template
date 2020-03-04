@@ -7,7 +7,7 @@ A template to quickly standup a flask webapp with bootstrap and a database.
 # Setup
 *** Change directory to Flask-Project-Template/ or rename the folder before doing so.
 
-``` python3 -m virtualenv venv/ ```
+``` python3 -m venv venv/ ```
 
 Linux/Mac
 ``` source bin/activate ```
