@@ -1,8 +1,8 @@
 from flask import request, render_template
-from . import app, db                         # Get from __init__
+from core import app, db                         # Get from __init__
 
-from .models import Table                    # Get db models
-from .MessageHandler import MessageHandler   # Get simple message processor
+from core.models import Table                    # Get db models
+from core.MessageHandler import MessageHandler   # Get simple message processor
 
 
 # Python imports
