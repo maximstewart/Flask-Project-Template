@@ -5,7 +5,6 @@ from flask import request, render_template
 
 # App imports
 from core import app, db                         # Get from __init__
-from core.models import Table                    # Get db models
 from core.MessageHandler import MessageHandler   # Get simple message processor
 
 

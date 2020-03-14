@@ -1,17 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
-
-
-class Table(db.Model):
-    id = db.Column(db.Integer, nullable=False, primary_key=True, unique=True, autoincrement=True)
-
-    def __repr__(self):
-        return f"['{self.title}', '{self.icon}', '{self.link}', '{self.id}']"
+from core import app, login_manager
+from flask_login import UserMixin
 
 
-class User(db.Model):
-    username = db.Column(db.String, nullable=False)
+db = SQLAlchemy(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
+    username = db.Column(db.String, unique=True, nullable=False)
     email    = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
     id       = db.Column(db.Integer, nullable=False, primary_key=True, unique=True, autoincrement=True)

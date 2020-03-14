@@ -1,10 +1,11 @@
 # Python imports
 
 # Lib imports
-from flask import request, render_template
+from flask import request, render_template, flash, redirect, url_for
+from flask_login import current_user, login_user, logout_user
 
 # App imports
-from core import app, db, LoginForm
+from core import app, bcrypt, db, User, LoginForm
 from core.MessageHandler import MessageHandler   # Get simple message processor
 
 
@@ -13,8 +14,25 @@ TITLE      = app.config['TITLE']
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    _form = LoginForm()
+    if current_user.is_authenticated:
+        return redirect(url_for("home"))
 
-    return render_template('login.html',
-                            title=TITLE,
-                            form=_form)
+    _form = LoginForm()
+    if _form.validate_on_submit():
+        user = db.session.query(User).filter(User.username == _form.username.data).first()
+
+        if user and bcrypt.check_password_hash(user.password, _form.password.data):
+            login_user(user, remember=False)
+            flash("Logged in successfully!", "success")
+            return redirect(url_for("home"))
+
+        flash("Username or password incorrect! Please try again...", "danger")
+
+    return render_template('login.html', title=TITLE, form=_form)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    flash("Logged out successfully!", "success")
+    return redirect(url_for("home"))

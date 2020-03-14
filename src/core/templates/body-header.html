@@ -22,19 +22,22 @@
             </li>
 
             <!-- Dropdowns -->
+            <!-- Others Dropdown -->
+
+            {% if not current_user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     Account
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ url_for('login') }}">
-                        <i title="Send Us an Email" class="fas fa-user"></i>&nbsp;&nbsp;Login</a>
+                        <i title="Login" class="fas fa-user"></i>&nbsp;&nbsp;Login</a>
                     <a class="dropdown-item" href="{{ url_for('register') }}">
-                        <i title="Find Us on Twitter" class="fas fa-user-plus"></i>&nbsp;&nbsp;Register</a>
+                        <i title="Register A User..." class="fas fa-user-plus"></i>&nbsp;&nbsp;Register</a>
                 </div>
             </li>
+            {% endif %}
 
-            <!-- Others Dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     Projects
@@ -80,6 +83,13 @@
                 <a class="nav-link" href="{{ url_for('about') }}">
                     <i class="far fa-address-card"></i> About</a>
             </li>
+
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 

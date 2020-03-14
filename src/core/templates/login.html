@@ -30,10 +30,10 @@
                         <div class="form-group">
                             {{ form.password.label(class="form-control-label") }}
 
-                            {% if form.email.errors %}
-                                {{ form.email(class="form-control form-control-sm is-invalid", autocomplete="off") }}
+                            {% if form.password.errors %}
+                                {{ form.password(class="form-control form-control-sm is-invalid", autocomplete="off") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form.email.errors %}
+                                    {% for error in form.password.errors %}
                                         <span class="">{{ error }}</span>
                                     {% endfor %}
                             {% else %}
