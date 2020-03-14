@@ -22,3 +22,14 @@ def root():
     return render_template('error.html',
                             title='Error!',
                             message='Must use GET request type...')
+
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    if request.method == 'GET':
+        return render_template('about.html',
+                                title=TITLE)
+
+    return render_template('error.html',
+                            title='Error!',
+                            message='Must use GET request type...')
