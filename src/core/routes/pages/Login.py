@@ -13,12 +13,8 @@ TITLE      = app.config['TITLE']
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        _form = LoginForm()
-        return render_template('login.html',
-                                title=TITLE,
-                                form=_form)
+    _form = LoginForm()
 
-    return render_template('error.html',
-                            title='Error!',
-                            message='Must use GET request type...')
+    return render_template('login.html',
+                            title=TITLE,
+                            form=_form)

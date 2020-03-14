@@ -15,11 +15,30 @@
                         <a href="/register">Register</a>
                         <div class="form-group">
                             {{ form.username.label(class="form-control-label") }}
-                            {{ form.username(class="form-control form-control-sm", autocomplete="off") }}
+
+                            {% if form.username.errors %}
+                                {{ form.username(class="form-control form-control-sm is-invalid", autocomplete="off") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.username.errors %}
+                                        <span class="">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.username(class="form-control form-control-sm", autocomplete="off") }}
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             {{ form.password.label(class="form-control-label") }}
-                            {{ form.password(class="form-control form-control-sm", autocomplete="off") }}
+
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-sm is-invalid", autocomplete="off") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span class="">{{ error }}</span>
+                                    {% endfor %}
+                            {% else %}
+                                {{ form.password(class="form-control form-control-sm", autocomplete="off") }}
+                            {% endif %}
                         </div>
                     </fieldset>
                     <div class="form-group justify-content-right text-right">
@@ -36,8 +55,4 @@
 {% endblock body_footer_additional %}
 
 {% block body_scripts_additional %}
-    <script src="{{ url_for('static', filename='js/ui-logic.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/post-ajax.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/events.js')}}"></script>
 {% endblock body_scripts_additional %}

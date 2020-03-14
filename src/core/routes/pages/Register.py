@@ -1,7 +1,7 @@
 # Python imports
 
 # Lib imports
-from flask import request, render_template
+from flask import request, render_template, url_for, redirect, flash
 
 # App imports
 from core import app, db, RegisterForm
@@ -13,12 +13,12 @@ TITLE      = app.config['TITLE']
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'GET':
-        _form = RegisterForm()
-        return render_template('register.html',
-                                title=TITLE,
-                                form=_form)
+    _form = RegisterForm()
 
-    return render_template('error.html',
-                            title='Error!',
-                            message='Must use GET request type...')
+    if _form.validate_on_submit():
+        flash("Account created successfully!", "success")
+        return redirect(url_for("home"))
+
+    return render_template('register.html',
+                            title=TITLE,
+                            form=_form)

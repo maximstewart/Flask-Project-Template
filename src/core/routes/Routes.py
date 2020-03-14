@@ -14,7 +14,7 @@ TITLE      = app.config['TITLE']
 
 
 @app.route('/', methods=['GET', 'POST'])
-def root():
+def home():
     if request.method == 'GET':
         return render_template('index.html',
                                 title=TITLE)
