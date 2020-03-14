@@ -1,14 +1,24 @@
+# Python imports
+import secrets
+
+
+# Lib imports
 from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_login import current_user, login_user, logout_user, LoginManager
 
+
+# Apoplication imports
+
+
+# Configs and 'init'
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///static/db/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['TITLE'] = ':::APP TITLE:::'
 
-# For csrf...change!!
-app.config['SECRET_KEY'] = '48e80dcf4ed6ea952ca1b7b564be22d665e6e178f7fda84828fdd5e7cdca097a'
+# For csrf and some other stuff...
+app.config['SECRET_KEY'] = secrets.token_hex(32)
 
 
 login_manager = LoginManager(app)
