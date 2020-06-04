@@ -16,20 +16,20 @@ Windows
 ``` source bin/Scripts/activate ```
 
 Linux/Mac
-``` pip install -r requirements-linux.txt ```
+``` pip install -r linux-requirements.txt ```
 
 Windows
-``` pip install -r requirements-windows.txt ```
+``` pip install -r windows-requirements.txt ```
 
 
 ``` cd src/ ```
 
 
 Linux/Mac
-``` ./start-linux.sh ```
+``` ./linux-start.sh ```
 
 Windows
-``` ./start-windows.sh ```
+``` ./windows-start.sh ```
 
 
 # Notes
