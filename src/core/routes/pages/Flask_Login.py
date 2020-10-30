@@ -6,14 +6,14 @@ from flask_login import current_user, login_user, logout_user
 
 # App imports
 from core import app, bcrypt, db, User, LoginForm
-from core.MessageHandler import MessageHandler   # Get simple message processor
+from core.utils import MessageHandler   # Get simple message processor
 
 
 msgHandler = MessageHandler()
 TITLE      = app.config['TITLE']
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/app-login', methods=['GET', 'POST'])
+def app_login():
     if current_user.is_authenticated:
         return redirect(url_for("home"))
 
@@ -31,8 +31,8 @@ def login():
     return render_template('login.html', title=TITLE, form=_form)
 
 
-@app.route('/logout')
-def logout():
+@app.route('/app-logout')
+def app_logout():
     logout_user()
     flash("Logged out successfully!", "success")
     return redirect(url_for("home"))

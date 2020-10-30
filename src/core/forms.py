@@ -4,7 +4,6 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from core import User
 
 
-
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=4, max=24)])
     email    = StringField('Email', validators=[DataRequired(), Email()])

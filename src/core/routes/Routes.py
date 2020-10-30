@@ -4,8 +4,8 @@
 from flask import request, render_template
 
 # App imports
-from core import app, db                         # Get from __init__
-from core.MessageHandler import MessageHandler   # Get simple message processor
+from core import app, db                # Get from __init__
+from core.utils import MessageHandler   # Get simple message processor
 
 
 msgHandler = MessageHandler()

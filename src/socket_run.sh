@@ -9,7 +9,7 @@ function main() {
     SCRIPTPATH="$( cd "$(dirname "")" >/dev/null 2>&1 ; pwd -P )"
     cd "${SCRIPTPATH}"
     echo "Working Dir: " $(pwd)
-    source "../venv/Scripts/activate"
+    source "../venv/bin/activate"
     gunicorn --bind unix:/tmp/app.sock wsgi:app
 }
 main $@;

@@ -1,3 +1,4 @@
+
 from flask_sqlalchemy import SQLAlchemy
 from core import app, login_manager
 from flask_login import UserMixin

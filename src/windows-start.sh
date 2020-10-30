@@ -7,7 +7,8 @@
 
 function main() {
     source "../venv/Scripts/activate"
-    # Note can replace 127.0.0.1 with 0.0.0.0 to make it 'network/internet' accessable...
-    waitress-serve --listen=127.0.0.1:8080  wsgi:app # <module>:<app>   IE <file>:<flask app variable>
+    # Note: Can replace 127.0.0.1 with 0.0.0.0 to make it 'network/internet' accessable...
+    # Note 2: Keycloak uses 8080. Change it or keep this as is.
+    waitress-serve --listen=127.0.0.1:6969  wsgi:app # <module>:<app>   IE <file>:<flask app variable>
 }
 main $@;
