@@ -4,7 +4,7 @@
         <div class="navbar-brand justify-content-center text-center">
             <div class="site-branding">
                 <h1 class="site-title">
-                    <a href="{{ url_for('home') }}" title="TITLE" rel="home">
+                    <a href="{{ url_for('home') }}" title="{{TITLE}} Home" rel="home">
                         Hello World!
                     </a>
                 </h1>
@@ -84,7 +84,7 @@
                     <i class="far fa-address-card"></i> About</a>
             </li>
 
-            {% if current_user.is_authenticated %}
+            {% if current_user.is_authenticated or oidc_loggedin() %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">
                         <i class="fas fa-sign-out-alt"></i> Logout</a>

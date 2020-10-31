@@ -48,10 +48,15 @@ login_manager = LoginManager(app)
 bcrypt        = Bcrypt(app)
 
 
+def oidc_loggedin():
+    return oidc.user_loggedin
+app.jinja_env.globals['oidc_loggedin'] = oidc_loggedin
+app.jinja_env.globals['TITLE'] =  ':::APP TITLE:::'
+
+
 from core.models import db, User
 with app.app_context():
     db.create_all()
-
 
 from core.forms import RegisterForm, LoginForm
 from core import routes
