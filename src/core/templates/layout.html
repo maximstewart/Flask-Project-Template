@@ -72,14 +72,17 @@
 
 
 {% block body_scripts %}
-<!-- For Bootstrap in this exact order... -->
-    <script src="{{ url_for('static', filename='js/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap/popper.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js')}}"></script>
+    <!-- For Bootstrap in this exact order... -->
+    <script src="{{ url_for('static', filename='js/libs/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/libs/bootstrap/popper.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/libs/bootstrap/bootstrap.min.js')}}"></script>
 
     <!-- For DatePicker -->
-    <script src="{{ url_for('static', filename='js/bootstrap/moment.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/libs/react.production.min-17-0-1.js')}}"></script>
+
+    <!-- For DatePicker -->
+    <script src="{{ url_for('static', filename='js/libs/bootstrap/moment.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/libs/bootstrap/bootstrap-datepicker.min.js')}}"></script>
     {% block body_scripts_additional %}
     {% endblock body_scripts_additional%}
 {% endblock %}
