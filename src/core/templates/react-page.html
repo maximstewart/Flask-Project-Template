@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body_header_additional %}
+{% endblock body_header_additional %}
+
+{% block body_content %}
+    <div id="react-container">
+    </div>
+{% endblock body_content %}
+
+
+{% block body_footer_additional %}
+{% endblock body_footer_additional %}
+
+{% block body_scripts_additional %}
+    <script src="{{ url_for('static', filename='js/post-ajax.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/events.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/react-ui-logic.js')}}"></script>
+{% endblock body_scripts_additional %}
