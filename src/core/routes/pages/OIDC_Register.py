@@ -27,6 +27,6 @@ def oidc_register():
         flash("Account created successfully!", "success")
         return redirect("/login")
 
-    return render_template('register.html',
+    return render_template('pages/register.html',
                             title = TITLE,
                             form  = _form)

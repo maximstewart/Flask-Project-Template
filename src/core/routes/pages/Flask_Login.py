@@ -28,7 +28,7 @@ def app_login():
 
         flash("Username or password incorrect! Please try again...", "danger")
 
-    return render_template('login.html', title=TITLE, form=_form)
+    return render_template('pages/login.html', title=TITLE, form=_form)
 
 
 @app.route('/app-logout')

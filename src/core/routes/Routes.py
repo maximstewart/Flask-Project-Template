@@ -16,7 +16,7 @@ msgHandler = MessageHandler()
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('pages/index.html')
 
     return render_template('error.html',
                             title='Error!',
@@ -26,7 +26,7 @@ def home():
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     if request.method == 'GET':
-        return render_template('about.html')
+        return render_template('pages/about.html')
 
     return render_template('error.html', title = 'Error!',
                             message = 'Must use GET request type...')
@@ -39,7 +39,7 @@ def protected_zone():
         if current_user.is_authenticated or oidc.user_loggedin:
             msg = "There is no secret! It was all a lie!"
 
-        return render_template('protected.html', secret = msg)
+        return render_template('pages/protected.html', secret = msg)
 
     return render_template('error.html', title = 'Error!',
                             message = 'Must use GET request type...')

@@ -26,6 +26,6 @@ def app_register():
         flash("Account created successfully!", "success")
         return redirect(url_for("login"))
 
-    return render_template('register.html',
+    return render_template('pages/register.html',
                             title = TITLE,
                             form  = _form)
