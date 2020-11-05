@@ -17,6 +17,7 @@ from flask_login import current_user, login_user, logout_user, LoginManager
 
 
 # Configs and 'init'
+APP_NAME      = ':::APP TITLE:::'
 ROOT_FILE_PTH = os.path.dirname(os.path.realpath(__file__))
 # This path is submitted as the redirect URI in certain code flows.
 # Change localhost%3A6969 to different port accordingly or change to your domain.
@@ -24,7 +25,7 @@ REDIRECT_LINK = "http%3A%2F%2Flocalhost%3A6969%2F"
 
 app = Flask(__name__)
 app.config.update({
-                "TITLE": ':::APP TITLE:::',
+                "TITLE": APP_NAME,
                 'DEBUG': False,
                 'LOGIN_PATH': "FLASK_LOGIN",  # Value can be OIDC or FLASK_LOGIN
                 'SECRET_KEY': secrets.token_hex(32), # For csrf and some other stuff...
@@ -50,11 +51,22 @@ bcrypt        = Bcrypt(app)
 
 def oidc_loggedin():
     return oidc.user_loggedin
+
+def oidc_isAdmin():
+    if oidc_loggedin():
+        isAdmin = oidc.user_getfield("isAdmin")
+        if isAdmin == "yes" :
+            return True
+    return False
+
+
 app.jinja_env.globals['oidc_loggedin'] = oidc_loggedin
-app.jinja_env.globals['TITLE'] =  ':::APP TITLE:::'
+app.jinja_env.globals['oidc_isAdmin']  = oidc_isAdmin
+app.jinja_env.globals['TITLE']         =  APP_NAME
 
 
 from core.models import db, User
+db.init_app(app)
 with app.app_context():
     db.create_all()
 
