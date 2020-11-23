@@ -10,8 +10,21 @@ function main() {
     cd "${SCRIPTPATH}"
     echo "Working Dir: " $(pwd)
     source "../venv/bin/activate"
-    # Note: Can replace 127.0.0.1 with 0.0.0.0 to make it 'network/internet' accessable...
-    # Note 2: Keycloak uses 8080. Change it or keep this as is.
-    gunicorn wsgi:app -b 127.0.0.1:6969 # <module>:<app>   IE <file>:<flask app variable>
+
+    LOG_LEVEL=debug
+    WORKER_COUNT=1
+    ADDR=127.0.0.1
+    PORT=6969
+    TIMEOUT=120
+
+    # Note can replace 127.0.0.1 with 0.0.0.0 to make it 'network/internet' accessable...
+    # Note: NEED -k eventlet for this to work! I spent too many hours on this...
+    # <module>:<app>   IE <file>:<flask app variable>
+    gunicorn wsgi:app
+                -b $ADDR:$PORT \
+                -k eventlet \
+                -w $WORKER_COUNT \
+                --timeout $TIMEOUT \
+                --log-level $LOG_LEVEL
 }
 main $@;
