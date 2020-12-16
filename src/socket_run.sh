@@ -10,6 +10,6 @@ function main() {
     cd "${SCRIPTPATH}"
     echo "Working Dir: " $(pwd)
     source "../venv/bin/activate"
-    gunicorn --bind unix:/tmp/app.sock wsgi:app
+    gunicorn --bind unix:/tmp/app.sock wsgi:app -p app.pid
 }
 main $@;
