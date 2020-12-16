@@ -5,10 +5,13 @@
     {% block header_meta %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="{{post.meta_author}}">
-        <meta name="copyright" content="CC0">
-        <meta name="description" content="{{post.meta_description}}">
-        <meta name="keywords" content="{{post.meta_keywords}}">
+
+        {% if post %}
+            <meta name="author" content="{{post.meta_author}}">
+            <meta name="copyright" content="CC0">
+            <meta name="description" content="{{post.meta_description}}">
+            <meta name="keywords" content="{{post.meta_keywords}}">
+        {% endif %}
         <meta name="robots" content="index,follow">
         {% block header_meta_additional %}
         {% endblock header_meta_additional %}
@@ -51,7 +54,16 @@
 </head>
 {% endblock %}
 <body>
-    <div class="container">
+    {% block body_header %}
+        <img id="bg" src="{{ url_for('static', filename='imgs/backgrounds/background.jpg')}}" alt="{{title}} Background Logo" />
+        {% include "body-header.html" %}
+
+        {% block body_header_additional %}
+        {% endblock body_header_additional%}
+    {% endblock %}
+
+
+    <div class="container bg-dark" style="height: 80vh;">
         <!-- System flashed messages! -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -62,16 +74,6 @@
                 </div>
             {% endif %}
         {% endwith %}
-
-
-        {% block body_header %}
-            <img id="bg" src="{{ url_for('static', filename='imgs/backgrounds/background.jpg')}}" alt="{{title}} Background Logo" />
-            {% include "body-header.html" %}
-
-            {% block body_header_additional %}
-            {% endblock body_header_additional%}
-        {% endblock %}
-
 
         <div class="row">
             <div id="page-alert-zone" class="col">

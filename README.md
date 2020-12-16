@@ -16,6 +16,9 @@ Windows
 ``` ./windows-start.sh ```
 
 
+# Images
+![1 Default starting interface. ](images/pic1.png)
+
 # Notes
 * Make sure to change the port in the start script as needed.
 * You can change the login route by changing the 'LOGIN_PATH' variable in the __init__.py file in the 'core' directory.
