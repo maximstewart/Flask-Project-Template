@@ -9,7 +9,7 @@ from ...utils import MessageHandler   # Get simple message processor
 
 
 msgHandler = MessageHandler()
-TITLE      = app.config['TITLE']
+
 
 @app.route('/oidc-register', methods=['GET', 'POST'])
 def oidc_register():
@@ -18,6 +18,7 @@ def oidc_register():
 
     _form = RegisterForm()
     if _form.validate_on_submit():
+        # TODO: Create...
         # NOTE: Do a requests api here maybe??
 
         # hashed_password = bcrypt.generate_password_hash(_form.password.data).decode("utf-8")
@@ -27,6 +28,4 @@ def oidc_register():
         flash("Account created successfully!", "success")
         return redirect("/login")
 
-    return render_template('pages/register.html',
-                            title = TITLE,
-                            form  = _form)
+    return render_template('pages/register.html', form  = _form)

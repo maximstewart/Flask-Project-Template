@@ -8,9 +8,6 @@ from flask import request, redirect, flash
 from ... import app, oidc
 
 
-TITLE      = app.config['TITLE']
-
-
 @app.route('/oidc-login', methods=['GET', 'POST'])
 @oidc.require_login
 def oidc_login():

@@ -10,7 +10,7 @@ from core.utils import MessageHandler   # Get simple message processor
 
 
 msgHandler = MessageHandler()
-TITLE      = app.config['TITLE']
+
 
 @app.route('/app-register', methods=['GET', 'POST'])
 def app_register():
@@ -27,5 +27,4 @@ def app_register():
         return redirect(url_for("login"))
 
     return render_template('pages/register.html',
-                            title = TITLE,
                             form  = _form)

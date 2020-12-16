@@ -10,7 +10,6 @@ from core.utils import MessageHandler   # Get simple message processor
 
 
 msgHandler = MessageHandler()
-TITLE      = app.config['TITLE']
 
 @app.route('/app-login', methods=['GET', 'POST'])
 def app_login():
@@ -28,7 +27,7 @@ def app_login():
 
         flash("Username or password incorrect! Please try again...", "danger")
 
-    return render_template('pages/login.html', title=TITLE, form=_form)
+    return render_template('pages/login.html', form = _form)
 
 
 @app.route('/app-logout')
