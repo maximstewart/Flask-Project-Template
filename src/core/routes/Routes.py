@@ -6,7 +6,7 @@ from flask_login import current_user
 
 
 # App imports
-from core import app, oidc, db          # Get from __init__
+from core import app, logger, oidc, db  # Get from __init__
 from core.utils import MessageHandler   # Get simple message processor
 
 
