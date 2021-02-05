@@ -13,7 +13,7 @@ from flask_login import current_user, login_user, logout_user, LoginManager
 
 
 # Apoplication imports
-
+from core.utils import Logger
 
 
 # Configs and 'init'
@@ -47,6 +47,7 @@ app.config.update({
 oidc          = OpenIDConnect(app)
 login_manager = LoginManager(app)
 bcrypt        = Bcrypt(app)
+logger        = Logger().get_logger()
 
 
 def oidc_loggedin():

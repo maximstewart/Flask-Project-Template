@@ -7,9 +7,18 @@
 
 function main() {
     SCRIPTPATH="$( cd "$(dirname "")" >/dev/null 2>&1 ; pwd -P )"
-    cd "${SCRIPTPATH}"
     echo "Working Dir: " $(pwd)
     source "../venv/bin/activate"
-    gunicorn --bind unix:/tmp/app.sock wsgi:app -p app.pid
+
+    LOG_LEVEL=debug
+    WORKER_COUNT=1
+    TIMEOUT=120
+
+    # <module>:<app>   IE <file>:<flask app variable>
+    gunicorn wsgi:app -p app.pid -b unix:/tmp/app.sock \
+                                -k eventlet \
+                                -w $WORKER_COUNT \
+                                --timeout $TIMEOUT \
+                                --log-level $LOG_LEVEL
 }
 main $@;

@@ -6,9 +6,12 @@ import os, logging
 
 class Logger:
     def __init__(self):
-        pass
+        self.logger = self.create_logger("flask_app")
 
-    def get_logger(self, loggerName = "NO_LOGGER_NAME_PASSED", createFile = True):
+    def get_logger(self):
+        return self.logger
+
+    def create_logger(self, loggerName = "NO_LOGGER_NAME_PASSED", createFile = True):
         """
             Create a new logging object and return it.
             :note:
