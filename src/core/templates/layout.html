@@ -54,8 +54,12 @@
 </head>
 {% endblock %}
 <body>
+    <video id="bg" src="{{ url_for('static', filename='imgs/backgrounds/particles.mp4')}}"
+        poster="{{ url_for('static', filename='imgs/backgrounds/000.png')}}"
+        autoplay loop>
+    </video>
+
     {% block body_header %}
-        <img id="bg" src="{{ url_for('static', filename='imgs/backgrounds/background.jpg')}}" alt="{{title}} Background Logo" />
         {% include "body-header.html" %}
 
         {% block body_header_additional %}
