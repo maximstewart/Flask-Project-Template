@@ -6,13 +6,13 @@ const displayMessage = (message, type, timeout, msgWindow = "page-alert-zone") =
     let spnElm      = document.createElement("SPAN");
     let textElm     = document.createTextNode(message);
 
-    divElm.setAttribute("class", "alert alert-" + type);
+    divElm.setAttribute("class", "alert alert-dismissible fade show alert-" + type);
     divElm.setAttribute("role", "alert");
     divElm.appendChild(textElm);
     btnElm.type     = "button";
     textElm         = document.createTextNode("X");
-    btnElm.setAttribute("class", "close");
-    btnElm.setAttribute("data-dismiss", "alert");
+    btnElm.setAttribute("class", "btn-dark btn-close");
+    btnElm.setAttribute("data-bs-dismiss", "alert");
     btnElm.setAttribute("aria-label", "close");
     spnElm.setAttribute("aria-hidden", "true");
     spnElm.appendChild(textElm);
@@ -30,5 +30,39 @@ const displayMessage = (message, type, timeout, msgWindow = "page-alert-zone") =
 const clearChildNodes = (parent) => {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
+    }
+}
+
+
+
+
+// Cache Buster
+const clearCache = () => {
+    const rep = /.*\?.*/;
+    let links     = document.getElementsByTagName('link'),
+        scripts   = document.getElementsByTagName('script'),
+        video     = document.getElementsByTagName('video'),
+        process_scripts = false;
+
+    for (let i = 0; i < links.length; i++) {
+        let link = links[i],
+        href = link.href;
+        if(rep.test(href)) {
+            link.href = href + '&' + Date.now();
+        } else {
+            link.href = href + '?' + Date.now();
+        }
+
+    }
+    if(process_scripts) {
+        for (let i = 0; i < scripts.length; i++) {
+            let script = scripts[i],
+            src = script.src;
+            if(rep.test(src)) {
+                script.src = src+'&'+Date.now();
+            } else {
+                script.src = src+'?'+Date.now();
+            }
+        }
     }
 }

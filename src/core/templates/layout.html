@@ -55,7 +55,7 @@
 {% endblock %}
 <body>
     <video id="bg" src="{{ url_for('static', filename='imgs/backgrounds/particles.mp4')}}"
-        poster="{{ url_for('static', filename='imgs/backgrounds/000.png')}}"
+        poster="{{ url_for('static', filename='imgs/backgrounds/background.png')}}"
         autoplay loop>
     </video>
 
@@ -100,7 +100,7 @@
 
     {% block body_scripts %}
         <!-- For internal scripts... -->
-        <script src="{{ url_for('static', filename='js/libs/bootstrap/jquery-3.3.1.slim.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/libs/jquery-3.6.0.min.js')}}"></script>
 
         <!-- For Bootstrap in this exact order... -->
         <script src="{{ url_for('static', filename='js/libs/bootstrap/popper.min.js')}}"></script>
@@ -108,8 +108,9 @@
         <script src="{{ url_for('static', filename='js/libs/bootstrap/mdb.min.js')}}"></script>
 
         <!-- For React -->
-        <script src="{{ url_for('static', filename='js/libs/react/react.production.min-17-0-1.js')}}"></script>
-        <script src="{{ url_for('static', filename='js/libs/react/react-dom.production.min-17-0-1.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/libs/react/react.production.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/libs/react/react-dom.production.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/libs/babel.min.js')}}"></script>
 
         <!-- Application Imports -->
         {% block body_scripts_additional %}

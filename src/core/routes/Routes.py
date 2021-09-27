@@ -31,6 +31,14 @@ def about():
     return render_template('error.html', title = 'Error!',
                             message = 'Must use GET request type...')
 
+@app.route('/react-page', methods=['GET', 'POST'])
+def react_page():
+    if request.method == 'GET':
+        return render_template('pages/react-page.html')
+
+    return render_template('error.html', title = 'Error!',
+                            message = 'Must use GET request type...')
+
 
 @app.route('/protected-zone', methods=['GET', 'POST'])
 def protected_zone():
