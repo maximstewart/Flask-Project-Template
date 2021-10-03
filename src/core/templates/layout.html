@@ -41,6 +41,7 @@
 
         <!-- Site CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/context-menu.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/overrides.css')}}">
         {% block header_css_additional %}
         {% endblock header_css_additional %}
@@ -58,6 +59,17 @@
         poster="{{ url_for('static', filename='imgs/backgrounds/background.png')}}"
         autoplay loop>
     </video>
+
+    <div class="menu">
+      <ul class="menu-options">
+        <li class="menu-option">Back</li>
+        <li class="menu-option">Reload</li>
+        <li class="menu-option">Save</li>
+        <li class="menu-option">Save As</li>
+        <li class="menu-option">Delete</li>
+     <li class="menu-option">Spy</li>
+      </ul>
+    </div>
 
     {% block body_header %}
         {% include "body-header.html" %}
@@ -115,6 +127,8 @@
         <!-- Application Imports -->
         {% block body_scripts_additional %}
         {% endblock body_scripts_additional%}
+
+        <script src="{{ url_for('static', filename='js/context-menu.js')}}"></script>
     {% endblock %}
 </body>
 </html>
