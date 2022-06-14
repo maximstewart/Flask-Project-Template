@@ -20,11 +20,6 @@ def oidc_register():
     if _form.validate_on_submit():
         # TODO: Create...
         # NOTE: Do a requests api here maybe??
-
-        # hashed_password = bcrypt.generate_password_hash(_form.password.data).decode("utf-8")
-        # user = User(username=_form.username.data, password=hashed_password)
-        # db.session.add(user)
-        # db.session.commit()
         flash("Account created successfully!", "success")
         return redirect("/login")
 

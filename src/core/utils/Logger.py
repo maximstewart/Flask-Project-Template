@@ -46,7 +46,7 @@ class Logger:
 
         if createFile:
             folder = "logs"
-            file   = folder + "/flask-application.log"
+            file   = f"{folder}/flask-application.log"
 
             if not os.path.exists(folder):
                 os.mkdir(folder)

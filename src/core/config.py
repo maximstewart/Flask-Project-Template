@@ -19,7 +19,7 @@ REDIRECT_LINK = "http%3A%2F%2Flocalhost%3A6969%2F"
 class FileGroups:
     videos = ('.mkv', '.avi', '.flv', '.mov', '.m4v', '.mpg', '.wmv', '.mpeg', '.mp4', '.webm')
     office = ('.doc', '.docx', '.xls', '.xlsx', '.xlt', '.xltx', '.xlm', '.ppt', 'pptx', '.pps', '.ppsx', '.odt', '.rtf')
-    images = ('.png', '.jpg', '.jpeg', '.gif', '.ico', '.tga')
+    images = ('.png', '.jpg', '.jpeg', '.gif', '.ico', '.tga', '.webp')
     text   = ('.txt', '.text', '.sh', '.cfg', '.conf')
     music  = ('.psf', '.mp3', '.ogg', '.flac', '.m4a')
     pdf    = ('.pdf')
@@ -38,7 +38,7 @@ class Config(object):
     LOGIN_PATH                     = "FLASK_LOGIN"  # Value can be OIDC or FLASK_LOGIN
     OIDC_TOKEN_TYPE_HINT           = 'access_token'
     APP_REDIRECT_URI               = REDIRECT_LINK
-    OIDC_CLIENT_SECRETS            = ROOT_FILE_PTH + '/client_secrets.json'
+    OIDC_CLIENT_SECRETS            = f'{ROOT_FILE_PTH}/client_secrets.json'
     OIDC_ID_TOKEN_COOKIE_SECURE    = True
     OIDC_REQUIRE_VERIFIED_EMAIL    = True
     OIDC_USER_INFO_ENABLED         = True
@@ -47,7 +47,7 @@ class Config(object):
                             'https://localhost:443/auth/realms/apps'
                         ]
 
-    STATIC_FPTH    = ROOT_FILE_PTH + "/static"
+    STATIC_FPTH    = f"{ROOT_FILE_PTH}/static"
     FILEGROUPS     = FileGroups
     VEXTENSION     = FileGroups.videos
     OEXTENSION     = FileGroups.office
