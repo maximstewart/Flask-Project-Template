@@ -25,7 +25,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('home') }}">
-                            <i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                            <i class="bi bi-house-fill"></i>&nbsp;&nbsp;Home</a>
                     </li>
 
                     <!-- Dropdowns -->
@@ -38,9 +38,9 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url_for('login') }}">
-                                <i title="Login" class="fas fa-user"></i>&nbsp;&nbsp;Login</a>
+                                <i title="Login" class="bi bi-person-circle"></i>&nbsp;&nbsp;Login</a>
                             <a class="dropdown-item" href="{{ url_for('register') }}">
-                                <i title="Register A User..." class="fas fa-user-plus"></i>&nbsp;&nbsp;Register</a>
+                                <i title="Register A User..." class="bi bi-person-plus-fill"></i>&nbsp;&nbsp;Register</a>
                         </div>
                     </li>
                     {% endif %}
@@ -51,7 +51,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">
-                                <i class="fas fa-code"></i>&nbsp;&nbsp;Code</a>
+                                <i class="bi bi-code-slash"></i>&nbsp;&nbsp;Code</a>
                         </div>
                     </li>
 
@@ -62,11 +62,11 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="mailto:">
-                                <i title="Send Us an Email" class="fas fa-envelope"></i>&nbsp;&nbsp;Email</a>
+                                <i title="Send Us an Email" class="bi bi-envelope-fill"></i>&nbsp;&nbsp;Email</a>
                             <a class="dropdown-item" href="#">
-                                <i title="Find Us on Twitter" class="fab fa-twitter"></i>&nbsp;&nbsp;Twitter</a>
+                                <i title="Find Us on Twitter" class="bi bi-twitter"></i>&nbsp;&nbsp;Twitter</a>
                             <a class="dropdown-item" href="#">
-                                <i title="Find Us on LinkedIn" class="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
+                                <i title="Find Us on LinkedIn" class="bi bi-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
                         </div>
                     </li>
 
@@ -78,9 +78,9 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">
-                                <i title="Donate via Patreon" class="fab fa-patreon"></i> Patreon</a>
+                                <i title="Donate via Paypal" class="bi bi-paypal"></i> Paypal</a>
                             <a class="dropdown-item" href="#">
-                                <i title="Donate via Paypal" class="fab fa-paypal"></i> Paypal</a>
+                                <i title="Donate via Credit Card" class="bi bi-credit-card-2-front-fill"></i> Credit Card</a>
                         </div>
                     </li>
 
@@ -88,13 +88,13 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('about') }}">
-                            <i class="far fa-address-card"></i> About</a>
+                            <i class="bi bi-file-earmark-person-fill"></i> About</a>
                     </li>
 
                     {% if current_user.is_authenticated or oidc_loggedin() %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">
-                                <i class="fas fa-sign-out-alt"></i> Logout</a>
+                                <i class="bi bi-box-arrow-left"></i> Logout</a>
                         </li>
                     {% endif %}
                 </ul>
