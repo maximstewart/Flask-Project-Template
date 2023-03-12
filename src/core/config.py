@@ -1,12 +1,13 @@
-# System import
-import os, secrets, json
+# Python imports
+import os
+import secrets
+import json
 from datetime import timedelta
-
 
 # Lib imports
 
-
 # Apoplication imports
+
 
 
 APP_NAME      = ':::APP TITLE:::'
@@ -35,6 +36,8 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI        = "sqlite:///static/db/database.db"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    REGISTER_DISABLED              = False
+    LOGIN_DISABLED                 = False
     LOGIN_PATH                     = "FLASK_LOGIN"  # Value can be OIDC or FLASK_LOGIN
     OIDC_TOKEN_TYPE_HINT           = 'access_token'
     APP_REDIRECT_URI               = REDIRECT_LINK

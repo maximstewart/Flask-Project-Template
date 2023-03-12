@@ -25,12 +25,8 @@
 
     {% block header_css %}
         <!-- Bootstrap CSS -->
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap5/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap5/bootstrap-dark.min.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons/bootstrap-icons.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap5/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap-icons/bootstrap-icons.css')}}">
 
         <!-- Site CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
@@ -47,21 +43,21 @@
     {% endblock %}
 </head>
 {% endblock %}
-<body>
+<body data-bs-theme="dark">
     <video id="bg" src="{{ url_for('static', filename='imgs/backgrounds/particles.mp4')}}"
         poster="{{ url_for('static', filename='imgs/backgrounds/background.png')}}"
         autoplay loop>
     </video>
 
     <div class="menu">
-      <ul class="menu-options">
-        <li class="menu-option">Back</li>
-        <li class="menu-option">Reload</li>
-        <li class="menu-option">Save</li>
-        <li class="menu-option">Save As</li>
-        <li class="menu-option">Delete</li>
-     <li class="menu-option">Spy</li>
-      </ul>
+        <ul class="menu-options">
+            <li class="menu-option">Back</li>
+            <li class="menu-option">Reload</li>
+            <li class="menu-option">Save</li>
+            <li class="menu-option">Save As</li>
+            <li class="menu-option">Delete</li>
+            <li class="menu-option">Spy</li>
+        </ul>
     </div>
 
     {% block body_header %}
@@ -111,9 +107,9 @@
         <script src="{{ url_for('static', filename='js/libs/bootstrap5/bootstrap.bundle.min.js')}}"></script>
 
         <!-- For React -->
+        <script src="{{ url_for('static', filename='js/libs/babel.min.js')}}"></script>
         <script src="{{ url_for('static', filename='js/libs/react/react.production.min.js')}}"></script>
         <script src="{{ url_for('static', filename='js/libs/react/react-dom.production.min.js')}}"></script>
-        <script src="{{ url_for('static', filename='js/libs/babel.min.js')}}"></script>
 
         <!-- Application Imports -->
         {% block body_scripts_additional %}

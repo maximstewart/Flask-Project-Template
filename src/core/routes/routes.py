@@ -1,13 +1,19 @@
 # Python imports
 
 # Lib imports
-from flask import request, render_template
+from flask import request
+from flask import render_template
 from flask_login import current_user
 
+# Application imports
+            # Get from __init__
+from core import app
+from core import logger
+from core import oidc
+from core import db
 
-# App imports
-from core import app, logger, oidc, db  # Get from __init__
 from core.utils import MessageHandler   # Get simple message processor
+
 
 
 msgHandler = MessageHandler()

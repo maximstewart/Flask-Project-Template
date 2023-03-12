@@ -1,11 +1,20 @@
 # Python imports
 
 # Lib imports
-from flask import request, render_template, url_for, redirect, flash
+from flask import flash
+from flask import redirect
+from flask import request
+from flask import render_template
+from flask import url_for
 
-# App imports
-from ... import app, oidc, db   # Get from __init__
+# Application imports
+            # Get from __init__
+from ... import app
+from ... import oidc
+from ... import db
+
 from ...utils import MessageHandler   # Get simple message processor
+
 
 
 msgHandler = MessageHandler()
@@ -13,7 +22,7 @@ msgHandler = MessageHandler()
 
 @app.route('/oidc-register', methods=['GET', 'POST'])
 def oidc_register():
-    if oidc.user_loggedin:
+    if oidc.user_loggedin or app.config["REGISTER_DISABLED"]:
         return redirect("/home")
 
     _form = RegisterForm()

@@ -1,10 +1,13 @@
 # Python imports
 
 # Lib imports
-from flask import redirect, url_for, flash
+from flask import redirect
+from flask import url_for
+from flask import flash
 
-# App imports
+# Application imports
 from core import app
+
 
 
 ROUTE = app.config['LOGIN_PATH']

@@ -1,6 +1,10 @@
-from . import Routes
-from .pages import Flask_Login
-from .pages import Flask_Register
-from .pages import OIDC_Login
-from .pages import OIDC_Register
-from .pages import LoginManager
+"""
+    Routes module
+"""
+from .login_controller import flask_login
+from .login_controller import flask_register
+from .login_controller import oidc_login
+from .login_controller import oidc_register
+from .login_controller import controller
+
+from . import routes

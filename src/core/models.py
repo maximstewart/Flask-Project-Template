@@ -1,7 +1,12 @@
+# Python imports
 
-from flask_sqlalchemy import SQLAlchemy
-from core import app, login_manager
+# Lib imports
 from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
+
+# Apoplication imports
+from core import app, login_manager
+
 
 
 db = SQLAlchemy(app)

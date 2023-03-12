@@ -8,7 +8,7 @@
 function main() {
     SCRIPTPATH="$( cd "$(dirname "")" >/dev/null 2>&1 ; pwd -P )"
     echo "Working Dir: " $(pwd)
-    source "../venv/bin/activate"
+    # source "../venv/bin/activate"
 
     LOG_LEVEL=debug
     WORKER_COUNT=1
@@ -20,7 +20,7 @@ function main() {
     # Note: NEED -k eventlet for this to work! I spent too many hours on this...
     # <module>:<app>   IE <file>:<flask app variable>
     gunicorn wsgi:app -p app.pid -b $ADDR:$PORT \
-                                -k eventlet \
+                                # -k eventlet \
                                 -w $WORKER_COUNT \
                                 --timeout $TIMEOUT \
                                 --log-level $LOG_LEVEL

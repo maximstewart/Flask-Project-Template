@@ -1,8 +1,9 @@
-# Gtk imports
-
 # Python imports
 
-# Application imports
+# Lib imports
+
+# Apoplication imports
+
 
 
 class MessageHandler:

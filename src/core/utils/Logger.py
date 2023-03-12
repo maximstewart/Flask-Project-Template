@@ -1,7 +1,11 @@
 # Python imports
-import os, logging
+import os
+import logging
 
-# Application imports
+# Lib imports
+
+# Apoplication imports
+
 
 
 class Logger:
