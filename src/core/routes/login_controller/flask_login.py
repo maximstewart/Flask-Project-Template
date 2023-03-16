@@ -18,11 +18,7 @@ from core import db
 from core import User
 from core import LoginForm
 
-from core.utils import MessageHandler   # Get simple message processor
 
-
-
-msgHandler = MessageHandler()
 
 @app.route('/app-login', methods=['GET', 'POST'])
 def app_login():

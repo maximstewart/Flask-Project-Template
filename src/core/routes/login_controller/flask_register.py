@@ -16,11 +16,7 @@ from core import current_user
 from core import RegisterForm
 
 from core.models import User
-from core.utils import MessageHandler   # Get simple message processor
 
-
-
-msgHandler = MessageHandler()
 
 
 @app.route('/app-register', methods=['GET', 'POST'])

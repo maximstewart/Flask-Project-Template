@@ -13,11 +13,6 @@ from ... import app
 from ... import oidc
 from ... import db
 
-from ...utils import MessageHandler   # Get simple message processor
-
-
-
-msgHandler = MessageHandler()
 
 
 @app.route('/oidc-register', methods=['GET', 'POST'])

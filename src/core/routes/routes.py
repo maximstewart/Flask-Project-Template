@@ -8,15 +8,8 @@ from flask_login import current_user
 # Application imports
             # Get from __init__
 from core import app
-from core import logger
 from core import oidc
 from core import db
-
-from core.utils import MessageHandler   # Get simple message processor
-
-
-
-msgHandler = MessageHandler()
 
 
 @app.route('/', methods=['GET', 'POST'])

@@ -10,8 +10,6 @@ from datetime import timedelta
 
 
 
-APP_NAME      = ':::APP TITLE:::'
-ROOT_FILE_PTH = os.path.dirname(os.path.realpath(__file__))
 # This path is submitted as the redirect URI in certain code flows.
 # Change localhost%3A6969 to different port accordingly or change to your domain.
 REDIRECT_LINK = "http%3A%2F%2Flocalhost%3A6969%2F"
@@ -27,7 +25,7 @@ class FileGroups:
 
 
 class Config(object):
-    TITLE      = APP_NAME
+    TITLE      = app_name
     DEBUG      = False
     TESTING    = False
     SECRET_KEY = secrets.token_hex(32)
