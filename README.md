@@ -1,5 +1,5 @@
 # Flask-Project-Template
-A template to quickly standup a Flask app with Bootstrap 5, React, OIDC IAM, and a database.
+A template to quickly standup a Flask app with Bootstrap 5, HTMX, OIDC IAM, and a database.
 
 # Dependencies
 ``` sudo apt install python3 ```

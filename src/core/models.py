@@ -5,11 +5,13 @@ from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 # Apoplication imports
-from core import app, login_manager
+from core import app
+from core import login_manager
 
 
 
 db = SQLAlchemy(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -24,3 +26,8 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"['{self.username}', '{self.email}', '{self.password}', '{self.id}']"
+
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()

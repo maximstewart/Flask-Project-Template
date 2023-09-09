@@ -1,3 +1,10 @@
+const logUIExceptionAjax = (data, action = "client-exception-logger") => {
+    const postArgs = 'exception_data=' + data;
+
+    doAjax('log-client-exception', postArgs, action);
+}
+
+
 const doAjax = (actionPath, data, action) => {
     let xhttp = new XMLHttpRequest();
 

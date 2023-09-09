@@ -1,2 +1,3 @@
-from .Logger import Logger
-from .MessageHandler import MessageHandler
+from .singleton import Singleton
+from .logger import Logger
+from .message_handler import MessageHandler

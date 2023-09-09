@@ -14,7 +14,8 @@
 {% endblock body_header_additional %}
 
 {% block body_content_additional %}
-    <div id="react-container">
+    <div id="htmx-container" hx-get="/load-hello-world" hx-trigger="load" hx-swap="innerHTML">
+        I got replaced...
     </div>
 {% endblock body_content_additional %}
 
@@ -26,5 +27,4 @@
     <script src="{{ url_for('static', filename='js/post-ajax.js')}}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
     <script src="{{ url_for('static', filename='js/events.js')}}"></script>
-    <script type="text/jsx" src="{{ url_for('static', filename='js/react-ui-logic.js')}}"></script>
 {% endblock body_scripts_additional %}

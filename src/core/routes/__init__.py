@@ -8,3 +8,4 @@ from .login_controller import oidc_register
 from .login_controller import controller
 
 from . import routes
+from . import htmx_page

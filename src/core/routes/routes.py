@@ -21,19 +21,21 @@ def home():
                             title='Error!',
                             message='Must use GET request type...')
 
+# NOTE: Yeah, not exactly 'logged' but mostly used with the terminal anyway.
+@app.route('/log-client-exception', methods=['GET', 'POST'])
+def ui_failure_exception_tracker():
+    if request.method == 'POST':
+        DATA = str(request.values['exception_data']).strip()
+        print(f"\n\n{DATA}")
+        return json_message.create("success", "UI Exception logged...")
+
+    return json_message.create("danger", "Must use POST request type...")
+
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     if request.method == 'GET':
         return render_template('pages/about.html')
-
-    return render_template('error.html', title = 'Error!',
-                            message = 'Must use GET request type...')
-
-@app.route('/react-page', methods=['GET', 'POST'])
-def react_page():
-    if request.method == 'GET':
-        return render_template('pages/react-page.html')
 
     return render_template('error.html', title = 'Error!',
                             message = 'Must use GET request type...')

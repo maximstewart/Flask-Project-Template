@@ -44,10 +44,6 @@ app.jinja_env.globals['TITLE']         = app.config["TITLE"]
 from core.models import db
 from core.models import User
 
-db.init_app(app)
-with app.app_context():
-    db.create_all()
-
 from core.forms import RegisterForm
 from core.forms import LoginForm
 from core import routes

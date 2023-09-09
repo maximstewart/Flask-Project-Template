@@ -32,5 +32,5 @@ builtins.app_name        = ':::APP TITLE:::'
 builtins.threaded        = threaded_wrapper
 builtins.daemon_threaded = daemon_threaded_wrapper
 builtins.ROOT_FILE_PTH   = os.path.dirname(os.path.realpath(__file__))
-builtins.logger          = Logger().get_logger()
+builtins.logger          = Logger(f"{ROOT_FILE_PTH}/../logs", _ch_log_lvl=10, _fh_log_lvl=20).get_logger()
 builtins.json_message    = MessageHandler()
