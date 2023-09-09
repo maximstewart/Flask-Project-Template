@@ -21,12 +21,12 @@ def home():
                             title='Error!',
                             message='Must use GET request type...')
 
-# NOTE: Yeah, not exactly 'logged' but mostly used with the terminal anyway.
+# NOTE: Normaly should sanitize logs or remove PII, etc.
 @app.route('/log-client-exception', methods=['GET', 'POST'])
 def ui_failure_exception_tracker():
     if request.method == 'POST':
         DATA = str(request.values['exception_data']).strip()
-        print(f"\n\n{DATA}")
+        logger.debug(DATA)
         return json_message.create("success", "UI Exception logged...")
 
     return json_message.create("danger", "Must use POST request type...")
